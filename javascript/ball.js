@@ -1,13 +1,13 @@
 class Ball {
-    constructor(ctx, posX, posY, width, height, speedX, speedY, imageName) {
+    constructor(ctx, posX, posY, width, height, imageName, speedX, speedY) {
         this.ctx = ctx
         // this.canvasSize = canvasSize
 
         this.posX = posX
         this.posY = posY
 
-        // this.speedX = speedX
-        // this.speedY = speedY
+        this.speedX = speedX
+        this.speedY = speedY
 
         this.width = width
         this.height = height
@@ -26,7 +26,7 @@ class Ball {
     }
 
     draw() {
-        this.ctx.drawImage(this.imageInstance, this.posX, this.posY, this.width, this.height) //hay que rellenar con las speed
+        this.ctx.drawImage(this.imageInstance, 400, 500, 50, 50) //hay que rellenar con las speed
 
     }
 

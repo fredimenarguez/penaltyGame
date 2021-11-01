@@ -43,10 +43,10 @@ const game = {
     start() {
         console.log('Start está funcionando')
         setInterval(() => {
-            // this.clearScreen()
+            //this.clearScreen()
             this.drawAll()
-            this.moveAll()
-            this.createAll()
+            //this.moveAll()
+            //this.createAll()
         }, 1000 / 1)
     },
 
@@ -65,9 +65,10 @@ const game = {
     },
 
     drawAll() {
-        this.drawBall()
+        
         // this.drawGKeaper()
         this.drawBackground()
+        this.drawBall()
     },
     drawBackground() {
         this.background.draw()
