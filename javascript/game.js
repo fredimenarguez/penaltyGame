@@ -12,9 +12,11 @@ const game = {
     intervalId: undefined,
     background: undefined,
     ball: undefined,
+    goalKeeper: undefined,
     scoreBoard: undefined,
     obstacles: [],
     keys: undefined,
+
 
     init() {
         this.setContext()
@@ -53,7 +55,7 @@ const game = {
 
     createAll() {
         this.createBall()
-        // this.createGKeaper()
+        this.createGKeeper()
         this.createBackground()
     },
 
@@ -64,11 +66,15 @@ const game = {
         this.ball = new Ball(this.ctx, this.canvasSize, 400, 0, "ball1.png")
     },
 
-    drawAll() {
+    createGKeeper() {
         
-        // this.drawGKeaper()
+        this.goalKeeper = new Goalkeeper(this.ctx, this.canvasSize, 350, 150, "goalkeeper.png")
+    },
+
+    drawAll() {
         this.drawBackground()
         this.drawBall()
+        this.drawGKeeper()
     },
     drawBackground() {
         this.background.draw()
@@ -78,6 +84,12 @@ const game = {
         this.ball.draw()
 
     },
+
+    drawGKeeper() {
+        this.goalKeeper.draw()
+        console.log
+    },
+
 
      moveAll() {
          this.moveBall()

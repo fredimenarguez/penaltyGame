@@ -41,11 +41,19 @@ class Ball {
             this.speedY = 0
          }
 
-       
+         if (this.posX + this.width == 650 || this.posX + this.width == 250){
+             this.speedY = 0  
+             this.speedX = 0
+         }
+
+        //  if (this.posY + this.height == 250) {
+        //      this.speedY = 0
+        //  }
 
         //gravedad de la pelota
         //this.speedY += this.gravity
     }
+    
     
     shootRight() {
 
