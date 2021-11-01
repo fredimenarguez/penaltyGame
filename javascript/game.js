@@ -61,7 +61,7 @@ const game = {
         this.background = new Background(this.ctx, 0, 0, this.canvasSize.width, this.canvasSize.height, "background1.png")
     },
     createBall() {
-        this.ball = new Ball(this.ctx, this.canvasSize, 400, 0, this.width, this.height, "ball1.png", this.speedX, this.speedY)
+        this.ball = new Ball(this.ctx, this.canvasSize, 400, 0, "ball1.png")
     },
 
     drawAll() {
@@ -94,9 +94,14 @@ const game = {
     },
 
     setListeners() {
-        document.onkeydown = (e) => {
+        document.onkeydown = e => {
+            console.log("presiono tecla", e.key)
 
+            e.key === "ArrowRight" ? this.ball.shootRight() : null
+            e.key === "ArrowLeft" ? this.ball.shootLeft() : null
+            e.key === "ArrowUp" ? this.ball.shootUp() : null
         }
+
     },
 
 

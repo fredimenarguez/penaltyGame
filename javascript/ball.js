@@ -1,5 +1,5 @@
 class Ball {
-    constructor(ctx, canvasSize, posX, posY, width = 50, height = 50, imageName, speedX, speedY = 10) {
+    constructor(ctx, canvasSize, posX, posY, imageName, width = 50, height = 50, speedX = 0, speedY = 10) {
         this.ctx = ctx
         this.canvasSize = canvasSize
 
@@ -32,15 +32,44 @@ class Ball {
 
     move() {
         
- 
+        this.posX += this.speedX
         this.posY += this.speedY
     
 
         //limites pantalla
-         this.posY + this.height > 500 ? this.speedY = 0 : null
+         if (this.posY + this.height == 500) {
+            this.speedY = 0
+         }
+
+       
 
         //gravedad de la pelota
         //this.speedY += this.gravity
     }
+    
+    shootRight() {
+
+
+        this.speedY = -10
+        this.speedX = 8
+            
+        
+
+    }
+
+    shootLeft() {
+        this.speedY = -10
+        this.speedX = -8
+
+
+    }
+
+    shootUp() {
+        this.speedY = -10
+        this.speedX = 0
+
+
+    }
+    
 
 }
