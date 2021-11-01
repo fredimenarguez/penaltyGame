@@ -11,7 +11,7 @@ const game = {
     frames: 60,
     intervalId: undefined,
     background: undefined,
-    player: undefined,
+    ball: undefined,
     scoreBoard: undefined,
     obstacles: [],
     keys: undefined,
@@ -32,8 +32,8 @@ const game = {
 
     setDimensions() {
         //TAMAÑO DONDE SE EJECUTARÁ EL JUEGO EN LA VENTANA. AHORA MISMO TODA LA VENTANA
-        this.canvasSize.width = window.innerWidth
-        this.canvasSize.height = window.innerHeight
+        this.canvasSize.width = 800
+        this.canvasSize.height = 600
 
         //EL ATRIBUTO POR DEFECTO DE WIDTH Y HEIGHT
         this.canvasDOM.setAttribute('width', this.canvasSize.width)
@@ -52,7 +52,7 @@ const game = {
 
 
     createAll() {
-        // this.createBall()
+        this.createBall()
         // this.createGKeaper()
         this.createBackground()
     },
@@ -60,9 +60,12 @@ const game = {
     createBackground() {
         this.background = new Background(this.ctx, 0, 0, this.canvasSize.width, this.canvasSize.height, "background1.png")
     },
+    createBall() {
+        this.ball = new Ball(this.ctx, 0, 0, this.canvasSize.width, this.canvasSize.height, "ball1.png")
+    },
 
     drawAll() {
-        // this.drawBall()
+        this.drawBall()
         // this.drawGKeaper()
         this.drawBackground()
     },
@@ -70,11 +73,16 @@ const game = {
         this.background.draw()
     },
 
-    moveAll() {
-        // this.moveBall()
-        // this.moveGKeaper()
+    drawBall() {
+        this.ball.draw()
 
     },
+
+    // moveAll() {
+    //     this.moveBall()
+    //     // this.moveGKeaper()
+
+    // },
 
     clearScreen() {
         this.ctx.cleanRect(0, 0, this.canvasSize.width, this.canvasSize.height)

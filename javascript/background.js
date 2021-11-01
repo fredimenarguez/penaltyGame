@@ -1,8 +1,10 @@
 class Background {
     constructor(ctx, posX, posY, width, height, imageName) {
         this.ctx = ctx
+
         this.posX = posX
         this.posY = posY
+
         this.width = width
         this.height = height
 
