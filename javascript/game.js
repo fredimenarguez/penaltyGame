@@ -118,9 +118,9 @@ const game = {
             e.key === "ArrowLeft" ? this.ball.shootLeft() : null
             e.key === "ArrowUp" ? this.ball.shootUp() : null
 
-            e.key === "ArrowRight" ? this.goalKeeper.throwRight() : null
-            e.key === "ArrowLeft" ? this.goalKeeper.throwLeft() : null
-            e.key === "ArrowUp" ? this.goalKeeper.throwUp() : null
+            e.key === "ArrowRight" ? this.goalKeeper.randomItem() : null
+            e.key === "ArrowLeft" ? this.goalKeeper.randomItem() : null
+            e.key === "ArrowUp" ? this.goalKeeper.randomItem() : null
 
             
 
