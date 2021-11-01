@@ -45,9 +45,9 @@ const game = {
         setInterval(() => {
             //this.clearScreen()
             this.drawAll()
-            //this.moveAll()
+            this.moveAll()
             //this.createAll()
-        }, 1000 / 1)
+        }, 1000 / 60)
     },
 
 
@@ -61,7 +61,7 @@ const game = {
         this.background = new Background(this.ctx, 0, 0, this.canvasSize.width, this.canvasSize.height, "background1.png")
     },
     createBall() {
-        this.ball = new Ball(this.ctx, 0, 0, this.canvasSize.width, this.canvasSize.height, "ball1.png")
+        this.ball = new Ball(this.ctx, this.canvasSize, 400, 0, this.width, this.height, "ball1.png", this.speedX, this.speedY)
     },
 
     drawAll() {
@@ -79,11 +79,15 @@ const game = {
 
     },
 
-    // moveAll() {
-    //     this.moveBall()
+     moveAll() {
+         this.moveBall()
     //     // this.moveGKeaper()
 
-    // },
+     },
+
+    moveBall() {
+        this.ball.move()
+    },
 
     clearScreen() {
         this.ctx.cleanRect(0, 0, this.canvasSize.width, this.canvasSize.height)
