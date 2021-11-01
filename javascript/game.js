@@ -49,7 +49,7 @@ const game = {
             this.drawAll()
             this.moveAll()
             //this.createAll()
-        }, 1000 / 60)
+        }, 1000 / 45)
     },
 
 
@@ -73,8 +73,9 @@ const game = {
 
     drawAll() {
         this.drawBackground()
-        this.drawBall()
         this.drawGKeeper()
+        this.drawBall()
+        
     },
     drawBackground() {
         this.background.draw()
@@ -87,14 +88,18 @@ const game = {
 
     drawGKeeper() {
         this.goalKeeper.draw()
-        console.log
+        
     },
 
 
      moveAll() {
-         this.moveBall()
-    //     // this.moveGKeaper()
+        this.moveBall()
+        this.moveGKeeper()
 
+     },
+
+     moveGKeeper() {
+        this.goalKeeper.move()
      },
 
     moveBall() {
@@ -112,6 +117,13 @@ const game = {
             e.key === "ArrowRight" ? this.ball.shootRight() : null
             e.key === "ArrowLeft" ? this.ball.shootLeft() : null
             e.key === "ArrowUp" ? this.ball.shootUp() : null
+
+            e.key === "ArrowRight" ? this.goalKeeper.throwRight() : null
+            e.key === "ArrowLeft" ? this.goalKeeper.throwLeft() : null
+            e.key === "ArrowUp" ? this.goalKeeper.throwUp() : null
+
+            
+
         }
 
     },

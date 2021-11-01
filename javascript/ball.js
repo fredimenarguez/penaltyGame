@@ -14,6 +14,7 @@ class Ball {
 
         this.imageInstance = undefined
         this.imageName = imageName
+        this.initBall = true
 
         //this.gravity = 0.4
 
@@ -37,8 +38,10 @@ class Ball {
     
 
         //limites pantalla
-         if (this.posY + this.height == 500) {
+         if (this.posY + this.height == 500 && this.initBall) {
             this.speedY = 0
+
+            this.initBall = false 
          }
 
          if (this.posX + this.width == 650 || this.posX + this.width == 250){
@@ -46,9 +49,9 @@ class Ball {
              this.speedX = 0
          }
 
-        //  if (this.posY + this.height == 250) {
-        //      this.speedY = 0
-        //  }
+         if (!this.initBall && this.posY + this.height == 250) {
+             this.speedY = 0
+         }
 
         //gravedad de la pelota
         //this.speedY += this.gravity
