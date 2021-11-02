@@ -1,6 +1,7 @@
-class Background {
-    constructor(ctx, posX, posY, width, height, imageName) {
+class Bannerloser {
+    constructor(ctx, canvasSize, posX, posY, imageName, width, height) {
         this.ctx = ctx
+        this.canvasSize = canvasSize
 
         this.posX = posX
         this.posY = posY
@@ -12,7 +13,6 @@ class Background {
         this.imageName = imageName
 
         this.init()
-
     }
 
     init() {
@@ -21,9 +21,7 @@ class Background {
     }
 
     draw() {
-
         this.ctx.drawImage(this.imageInstance, this.posX, this.posY, this.width, this.height)
     }
-
 
 }

@@ -15,6 +15,7 @@ const game = {
     goalKeeper: undefined,
     scoreBoard: 0,
     bannerGol: undefined,
+    bannerLoser: undefined,
     obstacles: [],
     keys: undefined,
 
@@ -58,7 +59,9 @@ const game = {
         this.createBall()
         this.createGKeeper()
         this.createBackground()
-        this.createBanners()
+        this.createBannerGol()
+        this.createBannerLoser()
+        this.createScoreMarker()
     },
 
     createBackground() {
@@ -75,19 +78,30 @@ const game = {
     },
 
 
-    createBanners() {
+    createBannerGol() {
 
-        this.bannerGol = new Bannergol(this.ctx, this.canvasSize, 350, 100, "gol1.png", 400, 200)
+        this.bannerGol = new Bannergol(this.ctx, this.canvasSize, 225, 100, "gol1.png", 450, 250)
     },
 
+    createBannerLoser() {
+
+        this.bannerLoser = new Bannerloser(this.ctx, this.canvasSize, 225, 100, "loser1.png", 450, 250)
+
+    },
+
+    createScoreMarker() {
+
+        this.ScorerMarker = new Scoremarker(this.ctx, this.canvasSize, 10, 20, 75, 33, this.scoreBoard)
+
+    },
 
     drawAll() {
         this.drawBackground()
         this.drawGKeeper()
         this.drawBall()
+        this.drawScoreMarker()
 
     },
-
 
     drawBackground() {
         this.background.draw()
@@ -103,6 +117,16 @@ const game = {
 
     drawBannerGol() {
         this.bannergol.draw()
+
+    },
+
+    drawBannerLoser() {
+        this.bannerLoser.draw()
+    },
+
+    drawScoreMarker() {
+
+        this.ScorerMarker.draw()
 
     },
 
@@ -141,12 +165,9 @@ const game = {
         if (ballDirection === this.goalKeeper.randomItem()) {
             console.log('PARADON');
             this.showBanners('parada')
-            // return true
         } else {
-            // this.bannerGol.draw()
             this.showBanners('gol')
             console.log('GOL');
-            // return false
         }
 
     },
@@ -155,7 +176,8 @@ const game = {
 
         setTimeout(() => {
             if (string === 'parada') {
-                console.log('Parada');
+                this.bannerLoser.draw()
+
             } else if (string === 'gol') {
                 this.bannerGol.draw()
                 this.addScore()
@@ -172,7 +194,7 @@ const game = {
 
     addScore() {
         this.scoreBoard += 10
-    }
+    },
 
 }
 
