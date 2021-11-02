@@ -16,7 +16,7 @@ class Ball {
         this.imageName = imageName
         this.initBall = true
 
-        //this.gravity = 0.4
+        //this.gravity = 0.5
 
         this.init()
     }
@@ -27,60 +27,63 @@ class Ball {
     }
 
     draw() {
-        this.ctx.drawImage(this.imageInstance, this.posX, this.posY, this.width, this.height) //hay que rellenar con las speed
+        this.ctx.drawImage(this.imageInstance, this.posX, this.posY, this.width, this.height)
 
     }
 
     move() {
-        
+
         this.posX += this.speedX
         this.posY += this.speedY
-    
+
 
         //limites pantalla
-         if (this.posY + this.height == 500 && this.initBall) {
+        if (this.posY + this.height == 500 && this.initBall) {
             this.speedY = 0
 
-            this.initBall = false 
-         }
+            this.initBall = false
+        }
 
-         if (this.posX + this.width == 650 || this.posX + this.width == 250){
-             this.speedY = 0  
-             this.speedX = 0
-         }
+        if (this.posX + this.width == 650 || this.posX + this.width == 250) {
+            this.speedY = 0
+            this.speedX = 0
+        }
 
-         if (!this.initBall && this.posY + this.height == 250) {
-             this.speedY = 0
-         }
+        if (!this.initBall && this.posY + this.height == 250) {
+            this.speedY = 0
+        }
 
         //gravedad de la pelota
         //this.speedY += this.gravity
     }
-    
-    
-    shootRight() {
 
+
+
+    shootRight() {
 
         this.speedY = -10
         this.speedX = 8
-            
-        
-
+        return 'right'
     }
 
     shootLeft() {
         this.speedY = -10
         this.speedX = -8
-
-
+        return 'left'
     }
 
     shootUp() {
         this.speedY = -10
         this.speedX = 0
-
-
+        return 'up'
     }
-    
+
+
+
+
+
+
 
 }
+
+
