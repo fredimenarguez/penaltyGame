@@ -46,7 +46,7 @@ class Goalkeeper {
     }
 
     throwUp = () => {
-        this.speedY = 0
+        this.speedY = -1.25
         return 'up'
     }
 

@@ -14,6 +14,7 @@ const game = {
     ball: undefined,
     goalKeeper: undefined,
     scoreBoard: 0,
+    turnCounter: 1,
     bannerGol: undefined,
     bannerLoser: undefined,
     obstacles: [],
@@ -28,6 +29,7 @@ const game = {
         this.setListeners()
         this.createAll()
         this.start()
+
 
     },
 
@@ -62,6 +64,7 @@ const game = {
         this.createBannerGol()
         this.createBannerLoser()
         this.createScoreMarker()
+        this.createTurnMarker()
     },
 
     createBackground() {
@@ -91,15 +94,23 @@ const game = {
 
     createScoreMarker() {
 
-        this.ScorerMarker = new Scoremarker(this.ctx, this.canvasSize, 10, 20, 75, 33, this.scoreBoard)
+        this.ScorerMarker = new Scoremarker(this.ctx, this.canvasSize, 50, 50, 80, 33, this.scoreBoard,)
 
     },
+
+    createTurnMarker() {
+
+        this.TurnMarker = new Turnmarker(this.ctx, this.canvasSize, 50, 100, 80, 33, this.turnCounter,)
+
+    },
+
 
     drawAll() {
         this.drawBackground()
         this.drawGKeeper()
         this.drawBall()
         this.drawScoreMarker()
+        this.drawTurnMarker()
 
     },
 
@@ -127,6 +138,12 @@ const game = {
     drawScoreMarker() {
 
         this.ScorerMarker.draw()
+
+    },
+
+    drawTurnMarker() {
+
+        this.TurnMarker.draw()
 
     },
 
@@ -160,6 +177,10 @@ const game = {
 
     },
 
+    // listenersCounter() {
+
+
+    // },
 
     checkCollision(ballDirection) {
         if (ballDirection === this.goalKeeper.randomItem()) {
@@ -177,12 +198,16 @@ const game = {
         setTimeout(() => {
             if (string === 'parada') {
                 this.bannerLoser.draw()
+                this.addTurn()
 
             } else if (string === 'gol') {
                 this.bannerGol.draw()
                 this.addScore()
+                this.addTurn()
+
             }
             console.log(this.scoreBoard);
+            console.log(this.turnCounter);
             clearInterval(this.intervalId)
 
         }, 500)
@@ -193,8 +218,24 @@ const game = {
     },
 
     addScore() {
-        this.scoreBoard += 10
+        this.scoreBoard += 1
+
     },
 
+
+    addTurn() {
+        this.turnCounter += 1
+        this.endGame()
+    },
+
+    endGame() {
+        if (this.turnCounter > 5) {
+            console.log('FIN DEL JUEGO');
+            this.scoreBoard = 0
+            this.turnCounter = 1
+        }
+
+    }
 }
+
 
