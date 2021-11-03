@@ -17,7 +17,7 @@ const game = {
     turnCounter: 1,
     bannerGol: undefined,
     bannerLoser: undefined,
-    obstacles: [],
+    direction: undefined,
     keys: undefined,
     canShoot: false,
 
@@ -66,14 +66,19 @@ const game = {
         this.createBannerLoser()
         this.createScoreMarker()
         this.createTurnMarker()
+        this.createDirection()
     },
 
     createBackground() {
         this.background = new Background(this.ctx, 0, 0, this.canvasSize.width, this.canvasSize.height, "bgmarc.png")
     },
 
+    createDirection() {
+        this.direction = new Direction(this.ctx, this.canvasSize, 150, 500, "upArrow.png", 80, 80, 50, this.speedX, this.speedY)
+    },
+
     createBall() {
-        this.ball = new Ball(this.ctx, this.canvasSize, 375, 0, "pelota1.png")
+        this.ball = new Ball(this.ctx, this.canvasSize, 370, 0, "pelota1.png")
     },
 
     createGKeeper() {
@@ -82,11 +87,11 @@ const game = {
 
 
     createBannerGol() {
-        this.bannerGol = new Bannergol(this.ctx, this.canvasSize, 225, 100, "gol1.png", 450, 250)
+        this.bannerGol = new Bannergol(this.ctx, this.canvasSize, 225, 235, "gol1.png", 375, 300)
     },
 
     createBannerLoser() {
-        this.bannerLoser = new Bannerloser(this.ctx, this.canvasSize, 225, 100, "loser1.png", 450, 250)
+        this.bannerLoser = new Bannerloser(this.ctx, this.canvasSize, 225, 235, "loser1.png", 375, 300)
     },
 
     createScoreMarker() {
@@ -108,6 +113,12 @@ const game = {
         this.drawBall()
         this.drawScoreMarker()
         this.drawTurnMarker()
+        this.drawDirection()
+
+    },
+
+    drawDirection() {
+        this.direction.draw()
 
     },
 
@@ -147,7 +158,11 @@ const game = {
     moveAll() {
         this.moveBall()
         this.moveGKeeper()
+        this.moveDirection()
 
+    },
+    moveDirection() {
+        this.direction.move()
     },
 
     moveGKeeper() {
@@ -209,8 +224,8 @@ const game = {
                 this.addTurn()
 
             }
-            console.log(this.scoreBoard);
-            console.log(this.turnCounter);
+            // console.log(this.scoreBoard);
+            // console.log(this.turnCounter);
             clearInterval(this.intervalId)
 
         }, 500)
