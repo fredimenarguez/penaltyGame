@@ -1,5 +1,5 @@
 class Ball {
-    constructor(ctx, canvasSize, posX, posY, imageName, width = 50, height = 50, speedX = 0, speedY = 10) {
+    constructor(ctx, canvasSize, posX, posY, imageName, width = 60, height = 60, speedX = 0, speedY = 10) {
         this.ctx = ctx
         this.canvasSize = canvasSize
 

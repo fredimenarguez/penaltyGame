@@ -68,16 +68,16 @@ const game = {
     },
 
     createBackground() {
-        this.background = new Background(this.ctx, 0, 0, this.canvasSize.width, this.canvasSize.height, "background1.png")
+        this.background = new Background(this.ctx, 0, 0, this.canvasSize.width, this.canvasSize.height, "backgroundGame.png")
     },
 
     createBall() {
-        this.ball = new Ball(this.ctx, this.canvasSize, 400, 0, "ball1.png")
+        this.ball = new Ball(this.ctx, this.canvasSize, 375, 0, "pelota1.png")
     },
 
     createGKeeper() {
 
-        this.goalKeeper = new Goalkeeper(this.ctx, this.canvasSize, 350, 150, "goalkeeper.png")
+        this.goalKeeper = new Goalkeeper(this.ctx, this.canvasSize, 350, 150, "portero inicial.png")
     },
 
 
