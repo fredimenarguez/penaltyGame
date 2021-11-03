@@ -19,6 +19,7 @@ const game = {
     bannerLoser: undefined,
     obstacles: [],
     keys: undefined,
+    canShoot: false,
 
 
 
@@ -68,7 +69,7 @@ const game = {
     },
 
     createBackground() {
-        this.background = new Background(this.ctx, 0, 0, this.canvasSize.width, this.canvasSize.height, "backgroundGame.png")
+        this.background = new Background(this.ctx, 0, 0, this.canvasSize.width, this.canvasSize.height, "bgmarc.png")
     },
 
     createBall() {
@@ -76,31 +77,27 @@ const game = {
     },
 
     createGKeeper() {
-
         this.goalKeeper = new Goalkeeper(this.ctx, this.canvasSize, 350, 150, "portero inicial.png")
     },
 
 
     createBannerGol() {
-
         this.bannerGol = new Bannergol(this.ctx, this.canvasSize, 225, 100, "gol1.png", 450, 250)
     },
 
     createBannerLoser() {
-
         this.bannerLoser = new Bannerloser(this.ctx, this.canvasSize, 225, 100, "loser1.png", 450, 250)
-
     },
 
     createScoreMarker() {
 
-        this.ScorerMarker = new Scoremarker(this.ctx, this.canvasSize, 50, 50, 80, 33, this.scoreBoard,)
+        this.ScorerMarker = new Scoremarker(this.ctx, this.canvasSize, 110, 115, 80, 33, this.scoreBoard,)
 
     },
 
     createTurnMarker() {
 
-        this.TurnMarker = new Turnmarker(this.ctx, this.canvasSize, 50, 100, 80, 33, this.turnCounter,)
+        this.TurnMarker = new Turnmarker(this.ctx, this.canvasSize, 38, 115, 80, 33, this.turnCounter,)
 
     },
 
@@ -123,7 +120,7 @@ const game = {
     },
 
     drawGKeeper() {
-        this.goalKeeper.draw()
+        this.goalKeeper.draw(this.framesCounter)
     },
 
     drawBannerGol() {
@@ -169,10 +166,16 @@ const game = {
         document.onkeydown = e => {
             console.log("presiono tecla", e.key)
 
-            e.key === "ArrowRight" ? this.checkCollision(this.ball.shootRight()) : null
-            e.key === "ArrowLeft" ? this.checkCollision(this.ball.shootLeft()) : null
-            e.key === "ArrowUp" ? this.checkCollision(this.ball.shootUp()) : null
-
+            if (e.key === "ArrowRight" && this.canShoot) {
+                this.canShoot = false
+                this.checkCollision(this.ball.shootRight())
+            } else if (e.key === "ArrowLeft" && this.canShoot) {
+                this.canShoot = false
+                this.checkCollision(this.ball.shootLeft())
+            } else if (e.key === "ArrowUp" && this.canShoot) {
+                this.canShoot = false
+                this.checkCollision(this.ball.shootUp())
+            }
         }
 
     },
@@ -213,6 +216,7 @@ const game = {
         }, 500)
 
         setTimeout(() => {
+            this.canShoot = false
             this.init()
         }, 2000)
     },

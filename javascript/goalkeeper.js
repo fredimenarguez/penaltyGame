@@ -12,6 +12,9 @@ class Goalkeeper {
         this.width = width
         this.height = height
 
+        this.frames = 2
+        this.framesIndex = 0
+
         this.imageInstance = undefined
         this.imageName = imageName
 
@@ -56,9 +59,32 @@ class Goalkeeper {
     }
 
     draw() {
-        this.ctx.drawImage(this.imageInstance, this.posX, this.posY, this.width, this.height) //hay que rellenar con las speed
+        this.ctx.drawImage(
+            this.imageInstance, 
+            // this.framesIndex * this.imageInstance.width / this.frames,  //inicio de recorte x
+            // 0,                                                          //inicio de recorte y
+            // this.imageInstance.width / this.frames,                     //ancho de recorte
+            // this.imageInstance.height, 
+            this.posX, 
+            this.posY, 
+            this.width, 
+            this.height) //hay que rellenar con las speed
+            
+            
+    //     if (framesCounter % 10 === 0) {
+    //             this.animate()
+    //           }
+    //         }
+          
+    // animate() {
+    //     if (this.framesIndex === 2) {
+    //         this.framesIndex = 0
+    //         }
+    //     this.framesIndex++
+     }
+    
 
-    }
+
 
     move() {
         this.posX += this.speedX

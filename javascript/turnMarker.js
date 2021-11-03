@@ -9,8 +9,6 @@ class Turnmarker {
         this.width = width
         this.height = height
 
-        this.turnText = 'Turno: '
-
         this.turnCounter = turnCounter
 
     }
@@ -18,9 +16,9 @@ class Turnmarker {
 
 
     draw() {
-        this.ctx.fillStyle = 'red'
-        this.ctx.fillText(`${this.turnText}${this.turnCounter}`, this.posX, this.posY);
-        this.ctx.font = '25px Arial';
+        this.ctx.fillStyle = 'white'
+        this.ctx.fillText(this.turnCounter, this.posX, this.posY);
+        this.ctx.font = '50px Arial';
 
 
 

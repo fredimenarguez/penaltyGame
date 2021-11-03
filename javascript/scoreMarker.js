@@ -9,7 +9,6 @@ class Scoremarker {
         this.width = width
         this.height = height
 
-        this.scoreText = 'Gol: '
         this.scoreBoard = scoreBoard
 
     }
@@ -17,9 +16,9 @@ class Scoremarker {
 
 
     draw() {
-        this.ctx.fillStyle = 'yellow'
-        this.ctx.fillText(`${this.scoreText}${this.scoreBoard}`, this.posX, this.posY);
-        this.ctx.font = '25px Arial';
+        this.ctx.fillStyle = 'white'
+        this.ctx.fillText(this.scoreBoard, this.posX, this.posY);
+        this.ctx.font = '50px Arial';
 
 
 

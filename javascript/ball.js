@@ -40,8 +40,8 @@ class Ball {
         //limites pantalla
         if (this.posY + this.height == 500 && this.initBall) {
             this.speedY = 0
-
             this.initBall = false
+            game.canShoot = true
         }
 
         if (this.posX + this.width == 650 || this.posX + this.width == 250) {

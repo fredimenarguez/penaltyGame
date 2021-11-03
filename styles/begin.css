@@ -1,0 +1,70 @@
+* {
+      font-family: 'Press Start 2P', cursive;
+    }
+
+
+body {
+    background-image: url("../img/portada.jpeg");
+    font-family: 'Press Start 2P', cursive;
+}
+
+#remove-screen {
+    margin-top: 20px;
+    text-align: center;
+    margin-top: 20px;
+    text-shadow: 2px 8px 6px white,
+    0px -5px 35px white;
+}
+
+a{
+    color: orange;
+    font-size: 20px;
+}
+
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    text-shadow: 2px 8px 6px white,
+    0px -5px 35px white;
+}
+
+h6 {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+canvas {
+    padding-left: 0;
+    padding-right: 0;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border: 2px solid #000;
+    box-shadow: 10px 10px 5px #aaaaaa;
+}
+
+#instructions {
+    margin-top: 14px;
+    text-align: center;
+    
+}
+
+#instructions p {
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-size: 13px;
+}
+
+#by {
+    color: #ff8000;
+    margin-left: 100px;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+}
