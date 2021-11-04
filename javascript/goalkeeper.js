@@ -34,8 +34,19 @@ class Goalkeeper {
         this.init()
     }
 
-    randomItem() {
-        return this.throwArray[Math.floor(Math.random() * this.throwArray.length)]();
+    randomItem(ballDirection, power) {
+        const currentThrowArr = [...this.throwArray]
+
+        if (power < 300) {
+            if (ballDirection === "left") currentThrowArr.splice(1, 1)
+            if (ballDirection === "left") currentThrowArr.splice(1, 1)
+            if (ballDirection === "left") currentThrowArr.splice(1, 1)
+        }
+
+
+
+
+        return currentThrowArr[Math.floor(Math.random() * currentThrowArr.length)]();
     }
 
     throwRight = () => {
@@ -60,29 +71,29 @@ class Goalkeeper {
 
     draw() {
         this.ctx.drawImage(
-            this.imageInstance, 
+            this.imageInstance,
             // this.framesIndex * this.imageInstance.width / this.frames,  //inicio de recorte x
             // 0,                                                          //inicio de recorte y
             // this.imageInstance.width / this.frames,                     //ancho de recorte
             // this.imageInstance.height, 
-            this.posX, 
-            this.posY, 
-            this.width, 
+            this.posX,
+            this.posY,
+            this.width,
             this.height) //hay que rellenar con las speed
-            
-            
-    //     if (framesCounter % 10 === 0) {
-    //             this.animate()
-    //           }
-    //         }
-          
-    // animate() {
-    //     if (this.framesIndex === 2) {
-    //         this.framesIndex = 0
-    //         }
-    //     this.framesIndex++
-     }
-    
+
+
+        //     if (framesCounter % 10 === 0) {
+        //             this.animate()
+        //           }
+        //         }
+
+        // animate() {
+        //     if (this.framesIndex === 2) {
+        //         this.framesIndex = 0
+        //         }
+        //     this.framesIndex++
+    }
+
 
 
 

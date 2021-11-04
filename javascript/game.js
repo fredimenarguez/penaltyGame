@@ -17,7 +17,7 @@ const game = {
     turnCounter: 1,
     bannerGol: undefined,
     bannerLoser: undefined,
-    direction: undefined,
+    power: undefined,
     keys: undefined,
     canShoot: false,
 
@@ -66,15 +66,15 @@ const game = {
         this.createBannerLoser()
         this.createScoreMarker()
         this.createTurnMarker()
-        this.createDirection()
+        this.createPower()
     },
 
     createBackground() {
         this.background = new Background(this.ctx, 0, 0, this.canvasSize.width, this.canvasSize.height, "bgmarc.png")
     },
 
-    createDirection() {
-        this.direction = new Direction(this.ctx, this.canvasSize, 150, 500, "upArrow.png", 80, 80, 50, this.speedX, this.speedY)
+    createPower() {
+        this.power = new Power(this.ctx, this.canvasSize, 700, 400, "powerBall.png", 80, 150, 0, -10)
     },
 
     createBall() {
@@ -87,11 +87,11 @@ const game = {
 
 
     createBannerGol() {
-        this.bannerGol = new Bannergol(this.ctx, this.canvasSize, 225, 235, "gol1.png", 375, 300)
+        this.bannerGol = new Bannergol(this.ctx, this.canvasSize, 185, 75, "GOL.png", 450, 450)
     },
 
     createBannerLoser() {
-        this.bannerLoser = new Bannerloser(this.ctx, this.canvasSize, 225, 235, "loser1.png", 375, 300)
+        this.bannerLoser = new Bannerloser(this.ctx, this.canvasSize, 185, 75, "LOSER.png", 450, 450)
     },
 
     createScoreMarker() {
@@ -113,12 +113,12 @@ const game = {
         this.drawBall()
         this.drawScoreMarker()
         this.drawTurnMarker()
-        this.drawDirection()
+        this.drawPower()
 
     },
 
-    drawDirection() {
-        this.direction.draw()
+    drawPower() {
+        this.power.draw()
 
     },
 
@@ -158,11 +158,11 @@ const game = {
     moveAll() {
         this.moveBall()
         this.moveGKeeper()
-        this.moveDirection()
+        this.movePower()
 
     },
-    moveDirection() {
-        this.direction.move()
+    movePower() {
+        this.power.move()
     },
 
     moveGKeeper() {
@@ -180,7 +180,6 @@ const game = {
     setListeners() {
         document.onkeydown = e => {
             console.log("presiono tecla", e.key)
-
             if (e.key === "ArrowRight" && this.canShoot) {
                 this.canShoot = false
                 this.checkCollision(this.ball.shootRight())
@@ -201,7 +200,7 @@ const game = {
     // },
 
     checkCollision(ballDirection) {
-        if (ballDirection === this.goalKeeper.randomItem()) {
+        if (ballDirection === this.goalKeeper.randomItem(ballDirection, this.power.posY)) {
             console.log('PARADON');
             this.showBanners('parada')
         } else {
