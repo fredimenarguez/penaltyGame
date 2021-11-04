@@ -2,17 +2,21 @@
       font-family: 'Press Start 2P', cursive;
     }
 
-
 body {
+    background-image: url('/img/bodyBG.png');
+}
+
+.start-screen {
     background-image: url("../img/startscreen.png");
-    background-repeat: no-repeat;
-    background-size: initial;
+    background-size: cover;
+    width: 800px;
+    height: 600px;
+    margin: 0 auto;
 }
 
 
 
 #remove-screen {
-    margin-top: 20px;
     text-align: center;
     margin-top: 20px;
     text-shadow: 2px 8px 6px white,
@@ -20,8 +24,9 @@ body {
 }
 
 a{
-    color: orange;
-    font-size: 20px;
+    color: yellow;
+    font-size: 30px;
+    
 }
 
 /* 

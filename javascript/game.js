@@ -17,12 +17,9 @@ const game = {
     turnCounter: 1,
     bannerGol: undefined,
     bannerLoser: undefined,
-<<<<<<< HEAD
     imageWin: undefined,
     obstacles: [],
-=======
     direction: undefined,
->>>>>>> f278ed004dea115e16bbfc3ce0784f8eb3e35d20
     keys: undefined,
     canShoot: false,
 
@@ -35,6 +32,7 @@ const game = {
         this.setListeners()
         this.createAll()
         this.start()
+        
 
 
     },
@@ -71,12 +69,9 @@ const game = {
         this.createBannerLoser()
         this.createScoreMarker()
         this.createTurnMarker()
-<<<<<<< HEAD
         this.createImageWin()
         this.createImageLost()
-=======
         this.createDirection()
->>>>>>> f278ed004dea115e16bbfc3ce0784f8eb3e35d20
     },
 
     createBackground() {
@@ -222,18 +217,11 @@ const game = {
 
     },
 
-    // listenersCounter() {
-
-
-    // },
-
     checkCollision(ballDirection) {
         if (ballDirection === this.goalKeeper.randomItem()) {
-            console.log('PARADON');
             this.showBanners('parada')
         } else {
             this.showBanners('gol')
-            console.log('GOL');
         }
 
     },
@@ -251,8 +239,6 @@ const game = {
                 this.addTurn()
 
             }
-            // console.log(this.scoreBoard);
-            // console.log(this.turnCounter);
             clearInterval(this.intervalId)
 
         }, 500)
@@ -275,25 +261,27 @@ const game = {
     },
 
     endGame() {
+        
         if (this.turnCounter > 5) {
-            console.log('FIN DEL JUEGO');
-<<<<<<< HEAD
-            console.log("tu puntuacion ha sido", this.scoreBoard)
             if ( this.scoreBoard >= 3){
-                console.log("imagen ganadora")
                 this.imageWin.draw()
+                this.gameOver()
+                
             } else {
-                console.log("imagen perdedora")
                 this.imageLost.draw()
+                this.gameOver()
             }
-=======
-            console.log('tu puntuación ha sido', this.scoreBoard);
->>>>>>> f278ed004dea115e16bbfc3ce0784f8eb3e35d20
             this.scoreBoard = 0
             this.turnCounter = 1
             } 
-     }
+     },
+
+     gameOver() {
+         clearInterval(this.intervalId)
+     },
  }
+
+ 
 
  
 
