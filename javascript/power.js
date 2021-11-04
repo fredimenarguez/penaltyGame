@@ -32,7 +32,6 @@ class Power {
         //hmin 400px
         //hmax 100px
         this.posY += this.speedY
-        console.log('mueve');
 
         if (this.posY === 400) {
             this.speedY *= -1

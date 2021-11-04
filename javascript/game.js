@@ -22,6 +22,8 @@ const game = {
     power: undefined,
     keys: undefined,
     canShoot: false,
+    haswin: false,
+    haslost: false,
 
 
 
@@ -79,7 +81,7 @@ const game = {
     },
 
     createPower() {
-        this.power = new Power(this.ctx, this.canvasSize, 700, 400, "powerBall.png", 80, 150, 0, -10)
+        this.power = new Power(this.ctx, this.canvasSize, 700, 400, "powerBall.png", 80, 150, 0, -25)
     },
 
     createBall() {
@@ -128,6 +130,13 @@ const game = {
         this.drawScoreMarker()
         this.drawTurnMarker()
         this.drawPower()
+        if(this.haslost == true){
+        this.imageLost.draw()
+        }
+        if(this.haswin == true){
+        this.imageWin.draw()
+        } 
+
 
     },
 
@@ -201,7 +210,6 @@ const game = {
 
     setListeners() {
         document.onkeydown = e => {
-            console.log("presiono tecla", e.key)
             if (e.key === "ArrowRight" && this.canShoot) {
                 this.canShoot = false
                 this.checkCollision(this.ball.shootRight())
@@ -254,7 +262,6 @@ const game = {
 
     },
 
-
     addTurn() {
         this.turnCounter += 1
         this.endGame()
@@ -264,11 +271,12 @@ const game = {
         
         if (this.turnCounter > 5) {
             if ( this.scoreBoard >= 3){
-                this.imageWin.draw()
+                this.haswin = true
                 this.gameOver()
                 
             } else {
                 this.imageLost.draw()
+                this.haslost = true
                 this.gameOver()
             }
             this.scoreBoard = 0
