@@ -250,6 +250,7 @@ const game = {
     endGame() {
         if (this.turnCounter > 5) {
             console.log('FIN DEL JUEGO');
+            console.log('tu puntuación ha sido', this.scoreBoard);
             this.scoreBoard = 0
             this.turnCounter = 1
         }

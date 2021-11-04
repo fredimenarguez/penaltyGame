@@ -31,12 +31,12 @@ class Direction {
     move() {
         //centerX: 360
         //leftX:150
-        //right:570
+        //right:570X
+        // this.speedX = 10
+        // console.log('mueve');
 
-        if (this.posX > 150 && this.posX < 570) {
-            this.speedY = 0
-            this.speedX = 10
-            console.log('mueve');
-        }
+        // if (this.posX > 150 && this.posX < 570) {
+        //     this.speedY = 0
+        // }
     }
 }
