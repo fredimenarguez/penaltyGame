@@ -17,6 +17,7 @@ const game = {
     turnCounter: 1,
     bannerGol: undefined,
     bannerLoser: undefined,
+    imageWin: undefined,
     obstacles: [],
     keys: undefined,
     canShoot: false,
@@ -66,6 +67,8 @@ const game = {
         this.createBannerLoser()
         this.createScoreMarker()
         this.createTurnMarker()
+        this.createImageWin()
+        this.createImageLost()
     },
 
     createBackground() {
@@ -89,11 +92,20 @@ const game = {
         this.bannerLoser = new Bannerloser(this.ctx, this.canvasSize, 225, 100, "loser1.png", 450, 250)
     },
 
+    createImageWin() {
+        this.imageWin = new Imagewin(this.ctx, this.canvasSize, 0, 0, "winimg.png", 800, 600)
+    },
+
+    createImageLost() {
+        this.imageLost = new Imagelost(this.ctx, this.canvasSize, 0, 0, "lostimg.png", 800, 600)
+    },
+
     createScoreMarker() {
 
         this.ScorerMarker = new Scoremarker(this.ctx, this.canvasSize, 110, 115, 80, 33, this.scoreBoard,)
 
     },
+    
 
     createTurnMarker() {
 
@@ -130,6 +142,14 @@ const game = {
 
     drawBannerLoser() {
         this.bannerLoser.draw()
+    },
+
+    drawImageWin() {
+        this.imageWin.draw()
+    },
+
+    drawImageLost() {
+        this.imageLost.draw()
     },
 
     drawScoreMarker() {
@@ -235,11 +255,20 @@ const game = {
     endGame() {
         if (this.turnCounter > 5) {
             console.log('FIN DEL JUEGO');
+            console.log("tu puntuacion ha sido", this.scoreBoard)
+            if ( this.scoreBoard >= 3){
+                console.log("imagen ganadora")
+                this.imageWin.draw()
+            } else {
+                console.log("imagen perdedora")
+                this.imageLost.draw()
+            }
             this.scoreBoard = 0
             this.turnCounter = 1
-        }
+            } 
+     }
+ }
 
-    }
-}
+ 
 
 
