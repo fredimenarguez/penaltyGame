@@ -40,4 +40,8 @@ class Power {
             this.speedY *= -1
         }
     }
+
+    stopPower(){
+        this.speedY = 0
+    }
 }

@@ -78,29 +78,30 @@ class Goalkeeper {
         this.imageInstance.src = `img/${this.imageName}`
     }
 
-    draw() {
+    draw(framesCounter) {
         this.ctx.drawImage(
             this.imageInstance,
-            // this.framesIndex * this.imageInstance.width / this.frames,  //inicio de recorte x
-            // 0,                                                          //inicio de recorte y
-            // this.imageInstance.width / this.frames,                     //ancho de recorte
-            // this.imageInstance.height, 
+            this.framesIndex * this.imageInstance.width / this.frames,  //inicio de recorte x
+            0,                                                          //inicio de recorte y
+            this.imageInstance.width / this.frames,                     //ancho de recorte
+            this.imageInstance.height, 
             this.posX,
             this.posY,
             this.width,
-            this.height) //hay que rellenar con las speed
+            this.height) 
 
 
-        //     if (framesCounter % 10 === 0) {
-        //             this.animate()
-        //           }
-        //         }
+            if (framesCounter % 15 === 0) {
+                    this.animate()
+                  }
+                }
 
-        // animate() {
-        //     if (this.framesIndex === 2) {
-        //         this.framesIndex = 0
-        //         }
-        //     this.framesIndex++
+        animate() {
+            if (this.framesIndex === 1) {
+                this.framesIndex = 0
+                return 
+                }
+            this.framesIndex++
     }
 
 

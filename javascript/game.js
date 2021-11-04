@@ -56,6 +56,7 @@ const game = {
     },
     start() {
         this.intervalId = setInterval(() => {
+            this.framesCounter++
             this.clearScreen()
             this.drawAll()
             this.moveAll()
@@ -89,7 +90,7 @@ const game = {
     },
 
     createGKeeper() {
-        this.goalKeeper = new Goalkeeper(this.ctx, this.canvasSize, 350, 150, "portero inicial.png")
+        this.goalKeeper = new Goalkeeper(this.ctx, this.canvasSize, 350, 150, "goalkeeperstandsprite.png")
     },
 
 
@@ -210,6 +211,7 @@ const game = {
 
     setListeners() {
         document.onkeydown = e => {
+            this.power.stopPower()
             if (e.key === "ArrowRight" && this.canShoot) {
                 this.canShoot = false
                 this.checkCollision(this.ball.shootRight())
@@ -275,7 +277,6 @@ const game = {
                 this.gameOver()
                 
             } else {
-                this.imageLost.draw()
                 this.haslost = true
                 this.gameOver()
             }
