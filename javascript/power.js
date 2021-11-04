@@ -1,4 +1,4 @@
-class Direction {
+class Power {
     constructor(ctx, canvasSize, posX, posY, imageName, width, height, speedX, speedY) {
         this.ctx = ctx
         this.canvasSize = canvasSize
@@ -29,14 +29,16 @@ class Direction {
 
     }
     move() {
-        //centerX: 360
-        //leftX:150
-        //right:570X
-        // this.speedX = 10
-        // console.log('mueve');
+        //hmin 400px
+        //hmax 100px
+        this.posY += this.speedY
+        console.log('mueve');
 
-        // if (this.posX > 150 && this.posX < 570) {
-        //     this.speedY = 0
-        // }
+        if (this.posY === 400) {
+            this.speedY *= -1
+        }
+        else if (this.posY === 100) {
+            this.speedY *= -1
+        }
     }
 }
