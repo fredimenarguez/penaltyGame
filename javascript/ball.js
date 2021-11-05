@@ -16,8 +16,6 @@ class Ball {
         this.imageName = imageName
         this.initBall = true
 
-        //this.gravity = 0.5
-
         this.init()
     }
 
@@ -32,12 +30,9 @@ class Ball {
     }
 
     move() {
-
         this.posX += this.speedX
         this.posY += this.speedY
 
-
-        //limites pantalla
         if (this.posY + this.height == 500 && this.initBall) {
             this.speedY = 0
             this.initBall = false
@@ -52,15 +47,9 @@ class Ball {
         if (!this.initBall && this.posY + this.height == 250) {
             this.speedY = 0
         }
-
-        //gravedad de la pelota
-        //this.speedY += this.gravity
     }
 
-
-
     shootRight() {
-
         this.speedY = -10
         this.speedX = 8
         return 'right'
@@ -77,13 +66,6 @@ class Ball {
         this.speedX = 0
         return 'up'
     }
-
-
-
-
-
-
-
 }
 
 

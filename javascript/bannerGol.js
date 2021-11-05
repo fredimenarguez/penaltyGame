@@ -24,7 +24,4 @@ class Bannergol {
         this.ctx.drawImage(this.imageInstance, this.posX, this.posY, this.width, this.height)
 
     }
-
 }
-
-

@@ -18,7 +18,6 @@ class Power {
         this.init()
     }
 
-
     init() {
         this.imageInstance = new Image()
         this.imageInstance.src = `img/${this.imageName}`
@@ -29,8 +28,6 @@ class Power {
 
     }
     move() {
-        //hmin 400px
-        //hmax 100px
         this.posY += this.speedY
 
         if (this.posY === 400) {
@@ -41,7 +38,7 @@ class Power {
         }
     }
 
-    stopPower(){
+    stopPower() {
         this.speedY = 0
     }
 }

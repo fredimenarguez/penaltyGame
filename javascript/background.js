@@ -12,7 +12,6 @@ class Background {
         this.imageName = imageName
 
         this.init()
-
     }
 
     init() {
@@ -24,6 +23,4 @@ class Background {
 
         this.ctx.drawImage(this.imageInstance, this.posX, this.posY, this.width, this.height)
     }
-
-
 }

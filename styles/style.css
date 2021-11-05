@@ -30,6 +30,11 @@ body {
 
 
 }
+.startScreen a{
+    text-decoration-line: none;
+    
+}
+
 
 .canvasPosition {
     display: flex;
@@ -37,3 +42,4 @@ body {
     padding-top: 2.5%;
 }
 
+ 

@@ -25,18 +25,12 @@ const game = {
     haswin: false,
     haslost: false,
 
-
-
-
     init() {
         this.setContext()
         this.setDimensions()
         this.setListeners()
         this.createAll()
         this.start()
-        
-
-
     },
 
     setContext() {
@@ -45,11 +39,8 @@ const game = {
     },
 
     setDimensions() {
-        //TAMAÑO DONDE SE EJECUTARÁ EL JUEGO EN LA VENTANA. AHORA MISMO TODA LA VENTANA
         this.canvasSize.width = 800
         this.canvasSize.height = 600
-
-        //EL ATRIBUTO POR DEFECTO DE WIDTH Y HEIGHT
         this.canvasDOM.setAttribute('width', this.canvasSize.width)
         this.canvasDOM.setAttribute('height', this.canvasSize.height)
 
@@ -93,7 +84,6 @@ const game = {
         this.goalKeeper = new Goalkeeper(this.ctx, this.canvasSize, 350, 150, "goalkeeperstandsprite.png")
     },
 
-
     createBannerGol() {
         this.bannerGol = new Bannergol(this.ctx, this.canvasSize, 185, 75, "GOL.png", 450, 450)
     },
@@ -113,16 +103,13 @@ const game = {
     createScoreMarker() {
 
         this.ScorerMarker = new Scoremarker(this.ctx, this.canvasSize, 110, 115, 80, 33, this.scoreBoard,)
-
     },
-    
 
     createTurnMarker() {
 
         this.TurnMarker = new Turnmarker(this.ctx, this.canvasSize, 38, 115, 80, 33, this.turnCounter,)
 
     },
-
 
     drawAll() {
         this.drawBackground()
@@ -131,19 +118,15 @@ const game = {
         this.drawScoreMarker()
         this.drawTurnMarker()
         this.drawPower()
-        if(this.haslost == true){
-        this.imageLost.draw()
+        if (this.haslost == true) {
+            this.imageLost.draw()
+        } if (this.haswin == true) {
+            this.imageWin.draw()
         }
-        if(this.haswin == true){
-        this.imageWin.draw()
-        } 
-
-
     },
 
     drawPower() {
         this.power.draw()
-
     },
 
     drawBackground() {
@@ -160,7 +143,6 @@ const game = {
 
     drawBannerGol() {
         this.bannergol.draw()
-
     },
 
     drawBannerLoser() {
@@ -176,23 +158,19 @@ const game = {
     },
 
     drawScoreMarker() {
-
         this.ScorerMarker.draw()
-
     },
 
     drawTurnMarker() {
-
         this.TurnMarker.draw()
-
     },
 
     moveAll() {
         this.moveBall()
         this.moveGKeeper()
         this.movePower()
-
     },
+
     movePower() {
         this.power.move()
     },
@@ -223,21 +201,17 @@ const game = {
                 this.checkCollision(this.ball.shootUp())
             }
         }
-
     },
 
     checkCollision(ballDirection) {
         if (ballDirection === this.goalKeeper.randomItem(ballDirection, this.power.posY)) {
-            console.log('PARADON');
             this.showBanners('parada')
         } else {
             this.showBanners('gol')
         }
-
     },
 
     showBanners(string) {
-
         setTimeout(() => {
             if (string === 'parada') {
                 this.bannerLoser.draw()
@@ -247,10 +221,8 @@ const game = {
                 this.bannerGol.draw()
                 this.addScore()
                 this.addTurn()
-
             }
             clearInterval(this.intervalId)
-
         }, 500)
 
         setTimeout(() => {
@@ -261,7 +233,6 @@ const game = {
 
     addScore() {
         this.scoreBoard += 1
-
     },
 
     addTurn() {
@@ -270,28 +241,21 @@ const game = {
     },
 
     endGame() {
-        
         if (this.turnCounter > 5) {
-            if ( this.scoreBoard >= 3){
+            if (this.scoreBoard >= 3) {
                 this.haswin = true
                 this.gameOver()
-                
+
             } else {
                 this.haslost = true
                 this.gameOver()
             }
             this.scoreBoard = 0
             this.turnCounter = 1
-            } 
-     },
+        }
+    },
 
-     gameOver() {
-         clearInterval(this.intervalId)
-     },
- }
-
- 
-
- 
-
-
+    gameOver() {
+        clearInterval(this.intervalId)
+    },
+}
