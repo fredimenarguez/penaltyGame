@@ -3,29 +3,40 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Game Penalti</title>
-    <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
-    <link rel="stylesheet" href="styles/begin.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 </head>
 
 <body>
-    <!-- <div class="droid">
-        <h1>Tanda de Penaltis</h1>
-    </div> -->
-    <br><br><br>
-    <div class="start-screen" id="remove-screen">
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <a href="index.html">Let the shootout begin!</a>
-        <br><br>
-        <div class="instruccionsp" id="instructions">
-            <p>Use the arrow<br>keys to shoot<br>giving it the<br>MAX POWER</p>
-            <div class="image" id="image-teclas">
-                <img src="img/arrows copia.png" alt="teclas">
-            </div>
+    <div id="campo">
+    </div>
+    <div class="canvasPosition">
+        <canvas id="myCanvas"></canvas>
+    </div>
+    <!-- <script>ctx.font = '25px Press Start 2P'; </script> -->
 
-        </div>
+    <script src="javascript/background.js"></script>
+    <script src="javascript/ball.js"></script>
+    <script src="javascript/game.js"></script>
+    <script src="javascript/goalkeeper.js"></script>
+    <script src="javascript/bannerGol.js"></script>
+    <script src="javascript/bannerLoser.js"></script>
+    <script src="javascript/scoreMarker.js"></script>
+    <script src="javascript/turnMarker.js"></script>
+    <script src="javascript/power.js"></script>
+    <script src="javascript/index.js"></script>
+    <script src="javascript/imageWin.js"></script>
+    <script src="javascript/imageLost.js"></script>
 
+    <div class="startScreen" id="remove-screen">
 
+        <a href="index.html">BACK TO MENU</a>
+    </div>
 </body>
+
+
 
 </html>
