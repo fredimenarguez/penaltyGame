@@ -3,7 +3,7 @@ window.onload = () => {
     audio.play() 
 }
 
-let audio = new Audio('../audio/campeones.mp3');
+let audio = new Audio('audio/campeones.mp3');
 if(typeof audio.loop == 'boolean')
 {
     audio.loop=true;
