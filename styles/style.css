@@ -1,3 +1,7 @@
+* {
+    font-family: 'Press Start 2P', cursive;
+  }
+
 a {
     color: black;
     font-size: 20px;
@@ -12,6 +16,19 @@ a {
 
 body {
     background-image: url('/img/bodyBG.png');
+
+
+    /* FONDO DE GAME BOY
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    
+    background-image: url(/img/gbcBG.png);
+    background-repeat:no-repeat;
+    background-size:100% 100%; */
+
+
+
 }
 
 .canvasPosition {
